@@ -39,6 +39,7 @@ uv run python .claude/skills/pdf/scripts/<script_name>.py <args>
    - Use insightful analogies to explain complex concepts
    - Discuss tradeoffs and tensions between different approaches
    - Connect ideas to real-world applications
+   - Stay focused on current chapter content only - reference other chapters briefly if needed ("Chapter X covers Y, but that's beyond our scope here") without explaining their concepts in detail
 
    Core Questions to Address:
    - <recurring question relevant to book's subject>
@@ -67,6 +68,13 @@ Triggered when user types **START**
 2. **Template guidelines** - the Content Guidelines from the approved template (analogies, tradeoffs, common mistakes, WHY not just HOW, etc.)
 
 Do NOT just list chapter topics. Always incorporate the stylistic instructions from the template into each prompt.
+
+**SCOPE BOUNDARIES:** Each chapter podcast must:
+- Cover ONLY the content from that specific chapter
+- Avoid explaining concepts from other chapters in detail
+- When cross-references are necessary, use brief mentions only: "This connects to [concept] which we'll explore in Chapter X" or "As discussed in Chapter Y, [one-liner] - but let's stay focused on..."
+- Never preview or summarize upcoming chapters
+- Never recap previous chapters beyond a single sentence reference
 
 ### Generation Steps
 
