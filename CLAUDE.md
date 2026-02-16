@@ -49,7 +49,12 @@ uv run python .claude/skills/pdf/scripts/<script_name>.py <args>
    - <how each chapter podcast should flow>
    ```
 
-5. **Iterate with user** until template is approved
+5. **Generate and output ALL chapter descriptions at once:**
+   - Each description = template text (from step 4) + chapter-specific instructions
+   - Output the complete prompt for EVERY chapter in a single response
+   - Format each as the exact text that will be entered into NotebookLM
+
+6. **Iterate with user** until all descriptions are approved
 
 ## Stage 2: Automated Podcast Generation
 
@@ -61,13 +66,9 @@ Triggered when user types **START**
 - Length: LONG (select "Long" option in NotebookLM)
 - Language: English
 
-### Chapter Prompt Construction
+### Chapter Prompts
 
-**CRITICAL:** Each chapter prompt MUST include BOTH:
-1. **Chapter-specific content** - key topics and concepts from that chapter
-2. **Template guidelines** - the Content Guidelines from the approved template (analogies, tradeoffs, common mistakes, WHY not just HOW, etc.)
-
-Do NOT just list chapter topics. Always incorporate the stylistic instructions from the template into each prompt.
+Use the exact chapter descriptions approved in Stage 1, step 6. These already combine template guidelines with chapter-specific content.
 
 **SCOPE BOUNDARIES:** Each chapter podcast must:
 - Cover ONLY the content from that specific chapter
@@ -82,7 +83,7 @@ Do NOT just list chapter topics. Always incorporate the stylistic instructions f
    - Use Claude Chrome extension to interact with NotebookLM
    - In Studio tab, click the **pencil icon** next to "Audio Overview" (not on Audio Overview itself)
    - Set length to LONG, language to English
-   - Enter chapter prompt that combines chapter content WITH template guidelines
+   - Enter the pre-approved chapter description from Stage 1
    - Click Generate
    - Track progress
 
